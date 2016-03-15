@@ -1,0 +1,7 @@
+patron_saint = {
+	local_missionary_strength = 0.05
+}
+
+jom_beatification_unrest = {
+    local_unrest = 3
+}

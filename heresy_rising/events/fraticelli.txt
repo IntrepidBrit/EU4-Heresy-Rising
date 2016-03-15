@@ -1,0 +1,78 @@
+namespace = hr_fraticelli
+
+# Generic Fraticelli event - across Italy, secret enclaves of Fraticelli hide protected by sympathetic local powers
+# UNFINISHED!
+#province_event = {
+#	id = hr_fraticelli.1
+#	title = "hr_fraticelli.1.title"
+#	desc = "hr_fraticelli.1.desc"
+#	picture = RELIGIOUS_CONVERSION_eventPicture
+#
+#	mean_time_to_happen = {
+#		years = 75
+#	}
+#
+#	trigger = {
+#		AND = {
+#			NOT = { religion = fraticelli }
+#			owner = {
+#					religion = catholic
+#			}
+#			region = italian_region
+#		}
+#	}
+#
+#	# Kill the heretics!
+#	option = {
+#		name = "hr_fraticelli.3.a"
+#		add_adm_power = -50
+#		add_dip_power = -25
+#		owner = {
+#			add_reform_desire = -0.01
+#			add_papal_influence = 5
+#		}
+#		add_revolt_risk = 1
+#	}
+#
+#	# Let them live in peace!
+#	option = {
+#		name = "hr_fraticelli.3.b"
+#		add_adm_power = 50
+#		owner = {
+#			add_reform_desire = 0.02
+#		}
+#		add_country_modifier = {
+#			name = "skhwekjgh"
+#			duration = 120
+#			tolerance_heretic = 1
+#		}
+#		add_prestige = -5
+#	}
+#
+#	# Convert them back!
+#	option = {
+#		name = "hr_fraticelli.3.c"
+#		owner = {
+#			add_papal_influence = 5
+#			add_global_missionary_strength = 0.1
+#		}
+#	}
+#
+#	# Send them over the border, with weapons
+#
+#	# Switch to Fraticelli
+#	option = {
+#		if = {
+#			num_of_cities = 1
+#			NOT = { tag = PAP }
+#		}
+#		name = "hr_fraticelli.3.d"
+#
+#		owner = {
+#			change_religion = fraticelli
+#			add_reform_desire = 0.05
+#			reverse_add_opinion = { who = PAP value = -200 }
+#		}
+#	}
+#}
+#

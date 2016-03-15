@@ -1,0 +1,42 @@
+christian = {
+
+	fraticelli = {
+		icon = 28
+		color = { 1.0 0.6 0.0 }
+		country = {
+			global_missionary_strength = 0.02
+			global_tax_modifier = -0.2
+		}
+
+		country_as_secondary = {
+			global_missionary_strength = 0.01
+			global_tax_modifier = -0.1
+		}
+
+		province = {
+			local_unrest = -1.00
+		}
+		
+		allowed_conversion = {
+			reformed
+			protestant
+			catholic
+		}
+		
+		on_convert = {
+			change_religion = fraticelli
+			add_prestige = -75
+			
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+		}
+		
+		heretic = { CATHOLIC BOGOMILIST WALDENSIAN HUSSITE LOLLARD SOCINIAN }
+		
+		misguided_heretic = yes		# Other christians hate them less
+	}
+	
+	# Apostolics next - https://en.wikipedia.org/wiki/Apostolics ?
+}

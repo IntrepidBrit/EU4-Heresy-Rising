@@ -1,0 +1,236 @@
+namespace = hr_papal
+
+# On 14 November 1394, Boniface IX empowered the Minorites of Terra di Lavoro to take possession of the monasteries deserted by the Fraticelli. Martin V conceded the same rights to the Franciscans of the Roman Province (14 November 1418) and, on 7 April 1426, transferred to them as a special grant the monastery of Palestrina, which had been a stronghold of the Fraticelli. In the same year, Martin V nominated St. John Capistran (27 May) and St. James of the March (11 October) as inquisitors general to take action against the Fraticelli. These promoters of order among the Franciscans fulfilled the duties of their office strictly and energetically and succeeded in striking at the very vitals of the sect. In 1415, the city of Florence had formally banished the "Fraticelli of the poor life, the followers of Michelino of Cesena of infamous memory", and in Lucca five Fraticelli, on trial, had solemnly abjured their error (1411). Martin V also ordered the Bishops of Porto and Alba to take steps against all Fraticelli "in the Roman province, the March of Ancona, the Duchy of Spoleto and other localities" (7 June 1427).
+# On 27 January of the same year, Martin V permitted the Observants of Ancona to occupy the monastery of the Fraticelli at Castro l'Ermita as a first step in the campaign against the Fraticelli of that neighbourhood. On 1 June 1428, he commanded the Bishop of Ancona to enforce his rulings strictly in Maiolati, to put all suspects to the rack, destroy their village, separate the children from heretical parents, and disperse the elder population. A circular letter, which the Fraticelli addressed to all Christendom, proved ineffectual and their doom was sealed. John of Capistrano and James of the March burned thirty-six of their establishments or dispersed the members and a number were burned at the stake at Florence and Fabriano, at the latter place in the presence of the pope.
+# St. James of March, commissioned by Nicholas V to proceed against them (1449), wrote the "Dialogus contra Fraticellos", which he first published in 1452, making some additions to it later on. According to this the main establishments of the Fraticelli were situated in the valley of Jesi, at Maiolati, Poggio Cupo, Massaccia, and Mergo. They had also constituted bishops in other districts where there were a sufficient number of adherents. They made frequent journeys for propaganda purposes, especially in Tuscany. Some dressed partly as Minorites, some as hermits, often disguising themselves for the sake of protection. Their doctrine was a r�sum� of their former sectarian errors: the whole Roman Church had deserted the true Faith since the time of John XXII (1323); they alone constituted the true Church and retained the sacraments and the priesthood.
+
+# Flavour event - James of the Marches writes 'Dialogus contra Fraticellos'
+country_event = {
+	id = hr_papal.1
+	fire_only_once = yes
+	major = yes
+	title = hr_papal.1.title
+	desc = hr_papal.1.desc
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		tag = PAP
+		papacy_active = yes
+		is_year = 1449
+	}
+
+	option = {
+		name = hr_papal.1.a
+		set_global_flag = dialogus_contra_fraticellos_commissioned
+	}
+}
+
+# James writes the dialogus
+country_event = {
+	id = hr_papal.2
+	fire_only_once = yes
+	title = hr_papal.2.title
+	desc = hr_papal.2.desc
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+		tag = PAP
+		papacy_active = yes
+		has_global_flag = dialogus_contra_fraticellos_commissioned
+		NOT = { has_global_flag = dialogus_contra_fraticellos_finished }
+	}
+
+	mean_time_to_happen = {
+		years = 3
+	}
+
+	option = {
+		# Make him into a general
+		name = hr_papal.2.a
+		set_global_flag = dialogus_contra_fraticellos_finished
+		define_general = {
+			name = "James of the Marches"
+			fire = 2
+			shock = 4
+			manuever = 3
+			siege = 1
+		}
+	}
+	option = {
+		# Make him into an advisor
+		name = hr_papal.2.b
+		set_global_flag = dialogus_contra_fraticellos_finished
+		define_advisor = {
+			type = inquisitor
+			name = "James of the Marches"
+			location = 119
+			skill = 2
+			discount = yes
+		}
+	}
+	option = {
+		# No special treatment - no 'cronyism'
+		name = hr_papal.2.c
+		if = {
+			limit = { reform_desire = 0.01 }
+			add_reform_desire = -0.01
+		}
+		if = {
+			limit = {
+				NOT = { reform_desire = 0.01 }
+			}
+			add_adm_power = 25
+			add_dip_power = 25
+			add_mil_power = 25
+		}
+		add_devotion = 10
+		add_prestige = 10
+		set_global_flag = dialogus_contra_fraticellos_finished
+	}
+}
+
+# James is beatified
+country_event = {
+	id = hr_papal.3
+	fire_only_once = yes
+	title = hr_papal.3.title
+	desc = hr_papal.3.desc
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		has_global_flag = dialogus_contra_fraticellos_finished
+	    exists = PAP
+		owns = 119
+		or = {
+		    religion = catholic
+		    119 = { religion = catholic }
+		}
+	}
+
+	mean_time_to_happen = {
+        years = 175
+	}
+
+	option = {
+		name = hr_papal.3.a
+		set_global_flag = jom_beatified
+		trigger = {
+		    NOT = {
+		        religion = catholic
+		    }
+		}
+
+		119 = {
+            add_province_modifier = {
+                name = "jom_beatification_unrest"
+                duration = 37230
+            }
+        }
+	}
+
+	option = {
+	    name = hr_papal.3.b
+	    set_global_flag = jom_beatified
+		trigger = {
+            119 = {
+                religion = catholic
+            }
+            religion = catholic
+		}
+
+		add_prestige = 10
+	}
+
+	option = {
+	    name = hr_papal.3.c
+	    set_global_flag = jom_beatified
+	    trigger = {
+	        119 = {
+	                NOT = { religion = catholic }
+	        }
+	        religion = catholic
+	    }
+
+	    add_prestige = -5
+	}
+}
+
+# James is canonised
+country_event = {
+	id = hr_papal.4
+	fire_only_once = yes
+	title = hr_papal.4.title
+	desc = hr_papal.4.desc
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		has_global_flag = jom_beatified
+	    exists = PAP
+		owns = 119
+		or = {
+		    religion = catholic
+		    119 = { religion = catholic }
+		}
+	}
+
+	mean_time_to_happen = {
+        years = 102
+	}
+
+    # If Ancona is held by catholics, increase stability and reduce conversion chance
+	option = {
+		name = hr_papal.4.a
+		set_global_flag = jom_canonised
+		trigger = {
+		    NOT = {
+		        religion = catholic
+		    }
+		}
+
+		119 = {
+                spawn_rebels = {
+                    type = catholic_rebels
+                    size = 25
+                    leader = "Giovanni Gangala"
+                }
+        }
+        ROOT = {
+            add_opinion = {
+                who = PAP
+                modifier = "interfering_pope"
+
+            }
+	    }
+	}
+
+	option = {
+	    name = hr_papal.4.b
+	    set_global_flag = jom_canonised
+		trigger = {
+            119 = {
+                religion = catholic
+            }
+            religion = catholic
+		}
+
+		add_stability = 1
+	}
+
+	option = {
+	    name = hr_papal.4.c
+	    set_global_flag = jom_canonised
+	    trigger = {
+	        119 = {
+	                NOT = { religion = catholic }
+	        }
+	        religion = catholic
+	    }
+
+	    119 = {
+	        add_province_modifier = {
+	            name = "patron_saint"
+	            duration = -1
+	        }
+	    }
+	}
+}
