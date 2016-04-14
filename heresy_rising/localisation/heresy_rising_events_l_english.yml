@@ -1,0 +1,37 @@
+﻿l_english:
+  #hr_fraticelli.1.title: "Fraticelli enclave found in [Root.GetName]"
+  #hr_fraticelli.1.desc: "A member of your court recently visited $PROVINCENAME$ and stumbled across a group of Fraticelli heretics being hidden by a local magistrate. What should we do?"
+  #hr_fraticelli.1.a: "Execute their protector and deal with the heretics."
+  #hr_fraticelli.1.b: "Let them live in peace."
+  #hr_fraticelli.1.c: "We should help bring them back into the fold and repent!"
+  #hr_fraticelli.1.d: "Bring them to court, I wish to speak with their leader."
+
+  hr_papal.1.title: "`'Dialogus contra Fraticellos`' commissioned"
+  hr_papal.1.desc: "In previous centuries, the Catholic church was plagued by a number of heresies. One of these movements, the Fraticelli, was an offshoot of the Franciscan Order. Like the Order, they followed in Francis of Assisi's steps and swore an oath of poverty. But the Fraticelli took their vows further than the Franciscan Order and were violently opposed to the lavishness of the Catholic church.\n\nThe Catholic church, having overcome the threat of the Fraticelli movement, [PAP.Monarch.GetTitle] [PAP.Monarch.GetName] has commissioned Dominic Gangala to write the 'Dialogus contra Fraticellos'. This book is to examine the behaviour and practises of the Fraticelli movement."
+  hr_papal.1.a: "... and the Catholic church is still free from the taint of heresy."
+
+  hr_papal.2.title: "'Dialogus contra Fraticellos' finished"
+  hr_papal.2.desc: "Dominic Gangala has finished the 'Dialogus contra Fraticellos', although he would continue to add to it over the next few years.\n\nNow that he has finished his works, what should we do with him now? Dominic Gangala has been useful to the church in a surprising number of ways."
+  hr_papal.2.a: "A capable leader of men. He should lead our armies!"
+  hr_papal.2.b: "Dominic should remain in Rome to advise us."
+  hr_papal.2.c: "Nothing. He has done his duty, as any true Christian would!"
+
+  hr_papal.3.title: "Dominic Gangala beatified"
+  hr_papal.3.desc: "(Historically - Dominic Gangala was beatified in 1624 by Pope Urban VIII.)"
+  hr_papal.3.a: "People are getting restless. This man was one of their own."
+  hr_papal.3.b: "One of our own."
+  hr_papal.3.c: "A shame. Maybe one day the people of Ancona will return to our flock."
+
+
+  hr_papal.4.title: "Saint James of the Marches canonised"
+  hr_papal.4.desc: "The Pope [PAP.Monarch.GetName] has decided to canonise Dominic Gangala. He should henceforth be known as Saint James of the Marches. His canonisation will have a profound effect on those in Ancona.\n\n(Historically - Dominic Gangala was canonised in 1726 by Pope Benedict XIII. He is venerated as one of Naples' patron saints."
+  hr_papal.4.a: "That meddling figurehead is stirring up trouble again!"
+  hr_papal.4.b: "A fine choice. Let us have a day of fasting to honour him."
+  hr_papal.4.c: "We could use this... Make him into one of our Patron Saints."
+
+  hr_fraticelli.1.title: "A little too Franciscan...."
+  hr_fraticelli.1.desc: "You are approached by your theologian during a quiet lull in court. Your advisor seems initially hesitant to speak, but then pipes up conspiratically:\n\n\"My [Root.Monarch.GetTitle], I've come to know you during our time together in court, and I can see that you also disapprove of how the church wields its power and wealth...\"\n\nYou're taken aback. Your believed your advisor is member of the Franciscan Order: they took their vows of poverty seriously; regularly fasted and were seemingly pious to a fault. But as the theologian continue to speak, you know that they speak of heresy.\n\nFraticelli heresy, to be precise."
+  hr_fraticelli.1.a: "\"Enough\", you draw your blade."
+  hr_fraticelli.1.b: "Interesting, I have some questions..."
+  hr_fraticelli.1.c: "Invite the Fraticelli to live freely in your lands."
+  hr_fraticelli.1.d: "\"There's some people you need to meet.\""

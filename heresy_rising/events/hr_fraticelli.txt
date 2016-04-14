@@ -1,0 +1,74 @@
+namespace = hr_fraticelli
+
+# Advisor Fraticelli conversion event
+country_event = {
+    id = hr_fraticelli.1
+    title = hr_fraticelli.1.title
+    desc = hr_fraticelli.1.desc
+    picture = SPY_eventPicture
+
+    mean_time_to_happen = {
+		years = 50
+	}
+
+    trigger = {
+        religion_group = christian
+        advisor = theologian
+    }
+
+    # Humanist option - leave him be & just the province convert
+     option = {
+        name = "hr_fraticelli.1.c"
+
+        trigger = {
+            full_idea_group = humanist_ideas
+        }
+
+        random_core_province = {
+            limit = {
+                NOT = { religion = fraticelli }
+            }
+            change_religion = fraticelli
+        }
+        add_reform_desire = 0.01
+    }
+
+    # A meeting of open minds
+    option = {
+        name = "hr_fraticelli.1.d"
+        add_reform_desire = 0.05
+        add_dip_power = -100
+        add_years_of_income = -0.75
+    }
+
+    # Listen to what he has to say...
+    option = {
+        name = "hr_fraticelli.1.b"
+        random_core_province = {
+            limit = {
+                NOT = { religion = fraticelli }
+            }
+            change_religion = fraticelli
+        }
+
+        if = {
+            limit = {
+                NOT = { religion = fraticelli }
+            }
+            change_religion = fraticelli
+        }
+        add_reform_desire = 0.01
+    }
+
+    # KILL THE HERETIC!
+    option = {
+        name = "hr_fraticelli.1.a"
+        add_mil_power = -150
+        add_reform_desire = -0.01
+        add_prestige = 10
+        add_papal_influence = 5
+        kill_advisor = {
+            type = theologian
+        }
+    }
+}
